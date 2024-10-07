@@ -2,19 +2,19 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  overflow: hidden;
 }
 .personal-page .introduction_section {
   position: relative;
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 .personal-page .profile_group {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
@@ -28,23 +28,8 @@
   transform: translate(-50%, 0);
   width: 100%;
   max-width: 100%; 
-  overflow: hidden;
   object-fit: cover;
   z-index: -1;
-}
-@media (min-width: 1920px) and (max-width: 2999px) {
-  .personal-page .profile_image {
-    width: 100%;
-    max-width: 100%;
-    object-fit: cover
-  }
-}
-@media (max-width: 991px) {
-  .personal-page .profile_image {
-    width: 100%;
-    max-width: 100%;
-    object-fit: cover;
-  }
 }
 .personal-page .name_display_group {
   position: absolute;
@@ -55,20 +40,26 @@
 }
 @media (max-width: 991px) {
   .personal-page .name_display_group {
-    left: 50%;
-  transform: translate(-50%, 0);
     width: 55%;
+  }
+}
+@media (max-width: 767px) {
+  .personal-page .name_display_group {
+    width: 40%;
+  }
+}
+@media (max-width: 289px) {
+  .personal-page .name_display_group  {
+    width: 20%;
   }
 }
 .personal-page .main_heading {
   position: absolute;
-  bottom: -130px;
+  top: 389px;
   left: 50%;
   transform: translate(-50%, 0);
-  display: flex;
-  justify-content: center;
-  width: 845px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
   color: black;
   text-align: center;
@@ -78,11 +69,19 @@
   .personal-page .main_heading {
     align-items: flex-start;
     font-size: 30px;
+    letter-spacing: 16.4px;
   }
 }
 @media (max-width: 479px) {
   .personal-page .main_heading {
-    font-size: 26px;
+    font-size: 15px;
+    letter-spacing: 6.4px;
+  }
+}
+@media (max-width: 289px) {
+  .personal-page .main_heading {
+    font-size: 6px;
+    letter-spacing: 3.4px;
   }
 }
 .personal-page .secondary_heading {
@@ -90,20 +89,25 @@
   top: 289px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 888px;
-  height: 128px;
+  width: 100%;
+  height: 100%;
   font: 400 128px/1 "Libre Barcode 128", Helvetica, Arial, serif;
+  text-align: center;
   color: black;
 }
 @media (max-width: 991px) {
   .personal-page .secondary_heading {
-    align-items: flex-start;
     font-size: 52px;
   }
 }
 @media (max-width: 479px) {
   .personal-page .secondary_heading {
-    font-size: 36px;
+    font-size: 28px;
+  }
+}
+@media (max-width: 289px) {
+  .personal-page .secondary_heading {
+    font-size: 14px;
   }
 }
 .personal-page .contact_images_row {
@@ -148,7 +152,6 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  min-height: 725px;
   background-image: linear-gradient(180deg, rgba(255, 254, 249, 0) 0%, rgba(255, 254, 249, 0.15) 10%, rgba(255, 254, 249, 0.3) 14.21%, rgba(255, 254, 249, 0.4) 20%, rgba(255, 254, 249, 0.6) 30%, rgba(255, 254, 249, 0.8) 40%, #fffef9 51%, #fffef9 60%, #fffef9 98%);
 }
 .personal-page .flex_column {
@@ -171,7 +174,12 @@
   justify-content: space-between;
   align-items: center;
   gap: 0 10px;
-  margin: 22px 0 0;
+  margin: 22px 22px 56px;
+}
+@media (max-width: 991px) {
+  .personal-page .flex_row {
+    flex-direction: column;
+  }
 }
 .personal-page .student_intro_title {
   width: 500px;
@@ -189,7 +197,6 @@
   opacity: 0.85;
 
 }
-
 .personal-page .career_aspiration_title {
   margin: 63px 0 0 3.12%;
   width: 85.66%;
@@ -197,171 +204,143 @@
   color: black;
   letter-spacing: 2.8px;
 }
-.personal-page .skills_section {
+
+.personal-page .skills_section { 
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  height: 773px;
-  min-height: 773px;
+  min-height: 100vh;
+  padding: 20px;
   background-color: #fffef9;
 }
 .personal-page .skills_h1 {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin: 52px auto 588px;
-  font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
   text-align: center;
-  letter-spacing: 10.6px;
+  margin-bottom: 40px;
+  font-size: calc(2rem + 2vw);
+  color: black;
+  letter-spacing: 0.2em;
 }
 .personal-page .skills_image_main {
   position: absolute;
-  top: 126px;
+  bottom: 0;
   right: 0;
-  width: 40%;
+  width: 35%;
+  max-width: 400px;
+  object-fit: contain;
 }
 .personal-page .skills_container {
-  position: absolute;
-  top: 247px;
-  left: 92px;
-  display: flex;
-  flex-direction: column;
-  gap: 90px 0;
-  width: 640px;
-  height: 469px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  width: 60%;
+  padding: 0 5%;
+  box-sizing: border-box;
 }
 .personal-page .skills_row {
-  display: flex;
-  justify-content: space-between;
-  gap: 0 10px;
-  margin: 0 12px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
 }
-.personal-page .skills_col_images_1 {
-  display: flex;
-  flex-direction: column;
-  gap: 43px 0;
-  margin: 3px 0 0;
-  width: 100px;
-  min-width: 0;
-}
-.personal-page .python_image {
-  margin: 0 26px 0 0;
-  width: 74px;
-}
-.personal-page .sqlite_image {
-  margin: 0 26px 0 0;
-  width: 74px;
-}
-.personal-page .qt_image {
-  width: 100px;
-}
-.personal-page .skills_col_titles_1 {
-  display: flex;
-  flex-direction: column;
-  margin: 23px 0 17px;
-  width: 195px;
-  min-width: 0;
-}
-.personal-page .python_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font: 400 28px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
-  text-align: center;
-  letter-spacing: 2.8px;
-}
-.personal-page .sqlite_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 82.5px 29px 0 28px;
-  font: 400 28px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
-  text-align: center;
-  letter-spacing: 2.8px;
-}
-.personal-page .qt_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 80.5px 0 0 28px;
-  width: 89px;
-  font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
-  text-align: center;
-  letter-spacing: 3.2px;
-}
+.personal-page .skills_col_images_1,
 .personal-page .skills_col_images_2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0 4px;
-  width: 94px;
-  min-width: 0;
 }
-.personal-page .image_4 {
-  width: 94px;
-}
-.personal-page .image_51 {
-  margin: 23px 0 0;
-  width: 74px;
-}
-.personal-page .image_31 {
-  margin: 44px 0 0;
-  width: 74px;
-}
+.personal-page .skills_col_titles_1,
 .personal-page .skills_col_titles_2 {
   display: flex;
   flex-direction: column;
-  margin: 29.5px 0 23px;
-  width: 135px;
-  min-width: 0;
-}
-.personal-page .cpp_title {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0 38px 0 20px;
-  font: 400 28px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
-  text-align: center;
-  letter-spacing: 2.8px;
 }
-.personal-page .html_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 72px 0 0;
-  font: 400 28px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
-  text-align: center;
-  letter-spacing: 2.8px;
+.personal-page .python_image,
+.personal-page .sqlite_image,
+.personal-page .qt_image,
+.personal-page .image_4,
+.personal-page .image_51,
+.personal-page .image_31 {
+  width: 80px;
+  height: auto;
+  margin-bottom: 20px;
 }
+.personal-page .python_title,
+.personal-page .sqlite_title,
+.personal-page .qt_title,
+.personal-page .cpp_title,
+.personal-page .html_title,
 .personal-page .css_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 83.5px 21px 0;
-  font: 400 28px/1.25 Orbitron, Helvetica, Arial, serif;
-  color: black;
+  font-size: 1.5rem;
   text-align: center;
-  letter-spacing: 2.8px;
+  margin-bottom: 80px;
+  color: black;
 }
 .personal-page .learning_status_h1 {
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 40px;
   color: black;
-  letter-spacing: 2.8px;
 }
+
+@media (max-width: 768px) {
+  .personal-page .skills_row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .personal-page .skills_image_main {
+    position: static;
+    width: 50%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+
+  .personal-page .skills_h1 {
+    font-size: calc(1.5rem + 2vw);
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-page .skills_row {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-page .skills_h1 {
+    font-size: calc(1.2rem + 3vw);
+  }
+
+  .personal-page .skills_image_main {
+    width: 70%;
+  }
+
+  .personal-page .python_image,
+  .personal-page .sqlite_image,
+  .personal-page .qt_image,
+  .personal-page .image_4,
+  .personal-page .image_51,
+  .personal-page .image_31 {
+    width: 60px;
+  }
+
+  .personal-page .python_title,
+  .personal-page .sqlite_title,
+  .personal-page .qt_title,
+  .personal-page .cpp_title,
+  .personal-page .html_title,
+  .personal-page .css_title {
+    font-size: 1.2rem;
+  }
+}
+
 .personal-page .hobbies_section {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  height: 773px;
-  min-height: 773px;
+  height: 100%;
   background-color: #fffef9;
 }
 .personal-page .color_box {
@@ -371,11 +350,6 @@
   width: 100%;
   height: 5px;
   background-color: black;
-}
-@media (min-width: 1920px) and (max-width: 2999px) {
-  .personal-page .color_box {
-    width: 100%;
-  }
 }
 .personal-page .flex_column_container {
   position: relative;
@@ -396,13 +370,25 @@
 .personal-page .flex_row_container {
   display: flex;
   justify-content: space-between;
-  gap: 0 10px;
-  margin: 55px 0 0;
+  margin: 5%;
   width: 100%;
+}
+@media (max-width: 1200px) {
+  .personal-page .flex_row_container {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5%;
+  }
 }
 .personal-page .hobby_image {
   width: 22%;
-  min-width: 0;
+}
+@media (max-width: 1200px) {
+  .personal-page .hobby_image {
+    width: 70%;
+    margin-bottom: 80px;
+  }
 }
 .personal-page .photo_description_title {
   margin: 0 0 82px;
@@ -414,6 +400,7 @@
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 .personal-page .dreams_title {
+  position: relative;
   margin: 48px 0 0;
   width: 100%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
@@ -425,7 +412,6 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  min-height: 773px;
   background-color: #fffef9;
 }
 .personal-page .flexible_column_div {

@@ -99,8 +99,8 @@
 .personal-page .flex_column {
   display: flex;
   flex-direction: column;
-  margin: 5%;
   margin-top: 2%;
+  margin-left: 5%;
   width: 90%;
 }
 .personal-page .who_am_i_title {
@@ -119,7 +119,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0 10px;
+  margin-top: 2%;
 }
 .personal-page .student_intro_title {
   width: 45%;
@@ -135,19 +135,7 @@
   object-fit: contain;
   min-width: 0;
   opacity: 0.85;
-  margin-top: 5%;
-}
-@media (max-width: 991px) {
-  .personal-page .flex_row {
-    display: flex;
-    flex-direction: column;
-  }
-  .personal-page .student_intro_title{
-    width: 85%;
-  }
-  .personal-page .student_image{
-    width: 85%;
-  }
+  margin-top: 2%;
 }
 .personal-page .career_aspiration_title {
   width: 85%;
@@ -155,23 +143,29 @@
   color: black;
   letter-spacing: 2.8px;
   margin-bottom: 5%;
-  margin-top: 2%;
-
+  margin-top: 5%;
 }
+
 @media (max-width: 991px) {
   .personal-page .flex_row {
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
+  }
+  .personal-page .flex_column {
+    align-items: center;
   }
   .personal-page .student_intro_title{
     width: 85%;
   }
   .personal-page .student_image{
     width: 85%;
+    margin-top: 5%;
+  }
+  .personal-page .student_intro_title{
+    width: 85%;
   }
 }
-
-.personal-page .skills_section { 
+.personal-page .skills_section {  
   position: relative;
   z-index: 2;
   display: flex;
@@ -180,10 +174,11 @@
   padding: 20px;
   background-color: #fffef9;
 }
+
 .personal-page .skills_h1 {
   position: relative;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 5%;
   font-size: calc(2rem + 2vw);
   display: flex;
   justify-content: center;
@@ -194,19 +189,22 @@
   text-align: center;
   letter-spacing: 10.6px;
 }
+
 .personal-page .skills_image_main {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 35%;
   object-fit: contain;
+  margin-left: 5%;
 }
+
 .personal-page .skills_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* Две колонки */
+  gap: 40px; /* Отступы между колонками */
   width: 60%;
-  padding: 0 5%;
+  padding: 0;
   box-sizing: border-box;
   margin: 5%;
   font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
@@ -214,45 +212,26 @@
   text-align: center;
   letter-spacing: 3.2px;
 }
-.personal-page .skills_row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  width: 100%;
-  max-width: 1200px;
-}
-.personal-page .skills_col_images_1,
-.personal-page .skills_col_images_2 {
+
+.personal-page .skills_item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start; /* Выравнивание по горизонтали */
+  gap: 80px; /* Отступы между картинкой и текстом */
 }
-.personal-page .skills_col_titles_1,
-.personal-page .skills_col_titles_2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.personal-page .python_image,
-.personal-page .sqlite_image,
-.personal-page .qt_image,
-.personal-page .image_4,
-.personal-page .image_51,
-.personal-page .image_31 {
-  width: 80px;
+
+.personal-page .skills_image {
+  width: 85px;
   height: auto;
-  margin-bottom: 20px;
 }
-.personal-page .python_title,
-.personal-page .sqlite_title,
-.personal-page .qt_title,
-.personal-page .cpp_title,
-.personal-page .html_title,
-.personal-page .css_title {
-  text-align: center;
-  margin-bottom: 80px;
+
+.personal-page .skills_title {
+  text-align: left;
   color: black;
+  margin-bottom: 0;
 }
+
 .personal-page .learning_status_h1 {
   width: 66.66%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
@@ -260,19 +239,23 @@
   letter-spacing: 2.8px;
   text-align: left;
   margin-left: 5%;
-  color: black;
+  margin-right: 5%;
   margin-bottom: 5%;
 }
 
 @media (max-width: 768px) {
-  .personal-page .skills_row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .personal-page .skills_container {
+    grid-template-columns: 1fr; /* Одна колонка при ширине экрана меньше 768px */
+    gap: 20px; /* Отступы между элементами */
   }
 
   .personal-page .skills_image_main {
     width: 50%;
     max-width: 300px;
+  }
+  
+  .personal-page .learning_status_h1 {
+    width: 40%;
   }
 }
 
@@ -281,36 +264,28 @@
     width: 70%;
   }
 
-  .personal-page .python_image,
-  .personal-page .sqlite_image,
-  .personal-page .qt_image,
-  .personal-page .image_4,
-  .personal-page .image_51,
-  .personal-page .image_31 {
+  .personal-page .skills_image {
     width: 60px;
   }
 
-  .personal-page .python_title,
-  .personal-page .sqlite_title,
-  .personal-page .qt_title,
-  .personal-page .cpp_title,
-  .personal-page .html_title,
-  .personal-page .css_title {
+  .personal-page .skills_title {
     font-size: 0.8rem;
   }
 }
+
 
 .personal-page .hobbies_section {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   height: 100%;
   background-color: #fffef9;
 }
 .personal-page .color_box {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 5px;
@@ -336,7 +311,9 @@
 .personal-page .flex_row_container {
   display: flex;
   justify-content: space-between;
-  margin: 3%;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
   width: 100%;
 }
 @media (max-width: 1200px) {
@@ -344,16 +321,31 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 5%;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
   }
 }
 .personal-page .hobby_image {
-  width: 22%;
+  width: 23%;
 }
 .personal-page .photo_description_title {
-  margin: 0 0 82px;
-  width: 22%;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 20%;
   min-width: 0;
+  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: 2.8px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.personal-page .dreams_title {
+  position: relative;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 100%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
   letter-spacing: 2.8px;
@@ -362,26 +354,22 @@
 @media (max-width: 1200px) {
   .personal-page .hobby_image {
     width: 70%;
-    margin-bottom: 80px;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
   .personal-page .photo_description_title{
     width: 70%;
   }
-}
-.personal-page .dreams_title {
-  position: relative;
-  margin: 48px 0 0;
-  width: 100%;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
-  letter-spacing: 2.8px;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  .personal-page .dreams_title {
+    width: 70%;
+  }
 }
 .personal-page .contact_section {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   background-color: #fffef9;
 }
 .personal-page .flexible_column_div {

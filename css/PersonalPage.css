@@ -201,7 +201,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 35%;
+  width: 32%;
   object-fit: contain;
   margin-left: 5%;
 }
@@ -210,11 +210,10 @@
   grid-template-columns: repeat(2, 1fr); /* Две колонки */
   flex-wrap: nowrap;
   gap: 2vw; /* Отступы между колонками */
-  width: 60%;
-  padding: 0;
+  width: 68%;
+  padding: 1% 5% 1%;
   box-sizing: border-box;
-  margin: 5%;
-  
+  margin: 3%;
 }
 .personal-page .skills_item {
   display: flex;
@@ -233,28 +232,29 @@
   text-align: left;
   color: black;
   margin-bottom: 0;
-  font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
+  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
   text-align: center;
-  letter-spacing: 3.2px;
+  letter-spacing: 0.1em;
 }
 
 .personal-page .learning_status_h1 {
-  width: 66.66%;
+  width: 65%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
   letter-spacing: 2.8px;
   text-align: left;
   margin-left: 5%;
   margin-right: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .personal-page .skills_container {
     grid-template-columns: 1fr; /* Одна колонка при ширине экрана меньше 768px */
     gap: 2vw; /* Отступы между элементами */
     justify-content: center;
+    width: 80%;
   }
 
   .personal-page .skills_image_main {
@@ -265,6 +265,9 @@
   .personal-page .learning_status_h1 {
     width: 40%;
   }
+  .personal-page .skills_image {
+    width: 60px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -273,11 +276,7 @@
   }
 
   .personal-page .skills_image {
-    width: 60px;
-  }
-
-  .personal-page .skills_title {
-    font-size: 0.8rem;
+    width: 50px;
   }
 }
 
@@ -402,7 +401,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 128px 0 0;
+  margin: 7%;
   width: 100%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
@@ -415,7 +414,7 @@
   justify-content: center;
   align-items: center;
   gap: 5vw;
-  margin: 186px 0 0;
+  margin: 7% 0 0;
   width: 100%;
 }
 .personal-page .github_image {

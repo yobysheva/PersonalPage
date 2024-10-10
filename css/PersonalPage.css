@@ -295,6 +295,29 @@
     width: 50px;
   }
 }
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marquee-content {
+  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: 2.8px;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}
 
 .personal-page .hobbies_section {
   position: relative;

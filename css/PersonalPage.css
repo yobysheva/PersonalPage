@@ -16,17 +16,15 @@
   cursor: default;
 }
 .personal-page .profile_group {
-  display: block;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  position: absolute;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -80vh;
   flex-direction: column;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); 
 }
 .personal-page .profile_image {
   position: fixed;
@@ -40,24 +38,20 @@
   z-index: -1;
 }
 .personal-page .barcode_image{
-  width: 100%;
+  position: relative;
+  width: 60%;
   object-fit: contain;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 .personal-page .main_heading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 60%;
   font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 2vw;
   color: black;
   text-align: center;
   letter-spacing: 0.7em;
-  margin-top: 7vw;
 }
 
 .personal-page .secondary_heading {
@@ -80,6 +74,8 @@
   margin: 20px 15px 776px auto;
   width: 225px;
   max-width: 100%;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1);
 }
 .personal-page .contact_image_1 {
   width: 100%;
@@ -114,12 +110,20 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  font-size: calc(2rem + 2vw);
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
   color: black;
   text-align: center;
   letter-spacing: 10.6px;
+}
+
+.personal-page .student_intro_title,
+.personal-page .student_image,
+.personal-page .career_aspiration_title,
+.personal-page .who_am_i_title {
+    opacity: 0;
+    transform: translateX(250px); /* Выносим за пределы экрана */
+    transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); /* Добавляем плавность */
 }
 
 .personal-page .flex_row {
@@ -137,21 +141,24 @@
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .personal-page .student_image {
   width: 50%;
   height: 10%;
   object-fit: contain;
   min-width: 0;
   opacity: 0.85;
-  margin-top: 2%;
+  margin-top: 1%;
 }
+
 .personal-page .career_aspiration_title {
   width: 85%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
   letter-spacing: 2.8px;
   margin-bottom: 5%;
-  margin-top: 5%;
+  margin-top: 2%;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 991px) {
@@ -215,6 +222,15 @@
   box-sizing: border-box;
   margin: 3%;
 }
+.personal-page .skills_h1,
+.personal-page .skills_container,
+.personal-page .learning_status_h1,
+.personal-page .skills_image_main{
+  opacity: 0;
+  transform: translateX(250px); /* Выносим за пределы экрана */
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); /* Добавляем плавность */
+}
+
 .personal-page .skills_item {
   display: flex;
   flex-direction: row;
@@ -280,7 +296,6 @@
   }
 }
 
-
 .personal-page .hobbies_section {
   position: relative;
   z-index: 2;
@@ -307,6 +322,14 @@
   margin: 5% auto 2%;
   width: 95%;
 }
+.personal-page .flex_row_container,
+.personal-page .hobbies_title,  
+.personal-page .dreams_title{
+  opacity: 0;
+  transform: translateX(250px); /* Выносим за пределы экрана */
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); /* Добавляем плавность */
+}
+
 .personal-page .hobbies_title {
   display: flex;
   justify-content: center;
@@ -443,4 +466,44 @@
     width: 10vw;
   }
   
+}
+
+
+/* Анимация появления */
+.animate {
+  animation: fadeInRight 0.5s ease forwards;
+}
+
+/* Анимация исчезновения */
+.disappear {
+  animation: fadeOutLeft 0.5s ease forwards;
+}
+
+/* Анимация появления справа */
+@keyframes fadeInRight {
+  0% {
+      opacity: 0;
+      transform: translateX(100px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+/* Анимация исчезновения влево */
+@keyframes fadeOutLeft {
+  0% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(-100px);
+  }
+}
+/* Когда элемент видим, применяем анимацию */
+.personal-page .animate {
+  opacity: 1;
+  transform: translateX(0); /* Возвращаем на место */
 }

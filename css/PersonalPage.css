@@ -20,12 +20,29 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: -80vh;
+  /* top: -80vh; */
+  bottom: 80vh;
   flex-direction: column;
   width: 100%;
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); 
 }
+/* @media (max-width: 4000px) {
+  .personal-page .profile_group {
+    bottom: 50vh;
+  }
+}
+@media (max-width: 1800px) {
+  .personal-page .profile_group {
+    bottom: 80vh;
+  }
+}
+@media (max-width: 991px) {
+  .personal-page .profile_group {
+    bottom: 80vh;
+  }
+} */
+
 .personal-page .profile_image {
   position: fixed;
   top: 0;
@@ -77,17 +94,19 @@
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1);
 }
-.personal-page .contact_image_1 {
-  width: 100%;
-}
-.personal-page .contact_image_2 {
-  width: 100%;
-}
-.personal-page .contact_image_3 {
-  width: 100%;
-}
+.personal-page .contact_image_1,
+.personal-page .contact_image_2,
+.personal-page .contact_image_3,
 .personal-page .contact_image_4 {
   width: 100%;
+  transition: transform 0.3s ease; /* Добавляем переход для transform */
+}
+
+.personal-page .contact_image_1:hover,
+.personal-page .contact_image_2:hover,
+.personal-page .contact_image_3:hover,
+.personal-page .contact_image_4:hover {
+  transform: translateY(-10px); /* Поднимаем изображение вверх на 10px */
 }
 
 .personal-page .who_am_i_section {
@@ -96,7 +115,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0) 0%, rgba(255, 254, 249, 0.15) 10%, rgba(255, 254, 249, 0.3) 20%);
+  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0) 0%, rgba(255, 254, 249, 0.07) 7% , rgba(255, 254, 249, 0.15) 10%);
   cursor: default;
 }
 .personal-page .flex_column {
@@ -187,7 +206,7 @@
   flex-direction: column;
   min-height: 100vh;
   padding: 20px;
-  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0.3) 20%,  rgba(255, 254, 249, 0.4) 30%, rgba(255, 254, 249, 0.6) 40%);
+  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 10%, rgba(255, 254, 249, 0.3) 20%,  rgba(255, 254, 249, 0.4) 30%);
   cursor: default;
 }
 
@@ -252,6 +271,7 @@
   color: black;
   text-align: center;
   letter-spacing: 0.1em;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .personal-page .learning_status_h1 {
@@ -263,6 +283,7 @@
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 1%;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 800px) {
@@ -326,7 +347,7 @@
   flex-direction: column;
   min-height: 100vh;
   height: 100%;
-  background-image: linear-gradient(rgba(255, 254, 249, 0.6) 40%, rgba(255, 254, 249, 0.8) 50%, #fffef9 60%, #fffef9 100%);
+  background-image: linear-gradient(180deg,  rgba(255, 254, 249, 0.4) 30%,rgba(255, 254, 249, 0.6) 40%, rgba(255, 254, 249, 0.8) 50%);
   cursor: default;
 }
 .personal-page .color_box {
@@ -356,6 +377,7 @@
 .personal-page .hobbies_title {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
   color: black;
@@ -370,7 +392,7 @@
   margin-right: 3%;
   width: 100%;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .personal-page .flex_row_container {
     flex-direction: column;
     justify-content: space-between;
@@ -405,7 +427,7 @@
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .personal-page .hobby_image {
     width: 70%;
     margin-top: 5%;
@@ -423,9 +445,11 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   min-height: 100vh;
-  background-color: #fffef9;
+  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0.8) 50%, #fffef9 60%, #fffef9 100%);
   cursor: default;
+  overflow: hidden;
 }
 .personal-page .flexible_column_div {
   display: flex;
@@ -437,6 +461,7 @@
 .personal-page .contact_title {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
   color: black;
@@ -485,7 +510,7 @@
   .personal-page .project_image_1 {
     width: 10vw;
   }
-  .personal-page .project_image_2 {
+.personal-page .project_image_2 {
     width: 10vw;
   }
   

@@ -109,4 +109,86 @@ document.addEventListener("DOMContentLoaded", function () {
     // Наблюдение за заголовками
     observer4.observe(flexRowContainer);
 
+
+
+    const observer5 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Появление всех элементов, когда 'who_am_i_title' на экране
+                document.querySelectorAll('.contact_title, .thank_you_message')
+                    .forEach(element => {
+                        element.classList.add('animate'); // Анимация появления
+                        element.classList.remove('disappear'); // Убираем класс исчезновения
+                    });
+            } else if (entry.target.classList.contains('thank_you_message')) {
+                // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
+                document.querySelectorAll('.contact_title, .thank_you_message')
+                    .forEach(element => {
+                        element.classList.add('disappear'); // Анимация исчезновения
+                        element.classList.remove('animate'); // Убираем класс появления
+                    });
+            }
+        });
+    });
+    
+// Начинаем отслеживать заголовки
+    const thankYouMessage = document.querySelector('.thank_you_message');
+    // Наблюдение за заголовками
+    observer5.observe(thankYouMessage);
+
+    // const observer6 = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //                 document.querySelectorAll('.github_image, .instagram_image, .project_image_1, .project_image_2')
+    //                 .forEach(element => {
+    //                     element.classList.add('animate1'); // Анимация появления
+    //                     element.classList.remove('disappear1'); // Убираем класс исчезновения
+    //                 });
+    //         } else if (entry.target.classList.contains('flexible_row_div')) {
+    //             // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
+    //                 document.querySelectorAll('.github_image, .instagram_image, .project_image_1, .project_image_2')
+    //                 .forEach(element => {
+    //                     element.classList.add('disappear1'); // Анимация появления
+    //                     element.classList.remove('animate1'); // Убираем класс исчезновения
+    //                 });
+    //         }
+    //     });
+    // });
+
+    // // Начинаем отслеживать заголовки
+    // const flexRowDiv = document.querySelector('.flexible_row_div');
+
+    // // Наблюдение за заголовками
+    // observer6.observe(flexRowDiv);
+
+    
+//     const contactSection = document.querySelector('.thank_you_message');
+
+//     const observer7 = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       const images = document.querySelectorAll('.flexible_row_div img');
+      
+//       images.forEach(image => {
+//         // Ограничиваем случайное позиционирование внутри секции
+//         const containerWidth = contactSection.offsetWidth;
+//         const randomX = Math.random() * containerWidth + 50; // Случайная позиция по горизонтали
+//         const randomDelay = Math.random() * 0.5; // Случайная задержка (0-0.5 секунд)
+//         const randomDuration = 2 + Math.random() * 3; // Случайная продолжительность падения (2-5 секунд)
+        
+//         // Применяем случайные значения к каждому изображению
+//         image.style.left = `${randomX}px`;
+//         image.style.animationDelay = `${randomDelay}s`;
+//         image.style.animationDuration = `${randomDuration}s`;
+        
+//         // Добавляем класс для запуска анимации
+//         image.classList.add('falling');
+//       });
+//       observer7.unobserve(entry.target);
+//     }
+//   });
+// });
+
+// // Начинаем отслеживать секцию
+//     observer7.observe(contactSection);
 });

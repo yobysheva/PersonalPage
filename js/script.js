@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         element.classList.add('animate'); // Анимация появления
                         element.classList.remove('disappear'); // Убираем класс исчезновения
                     });
-            } else if (entry.target.classList.contains('flex_row')) {
+            } else if (entry.target.classList.contains('student_image')) {
                 // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
                 document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .career_aspiration_title')
                     .forEach(element => {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Начинаем отслеживать заголовки
     const whoAmITitle = document.querySelector('.who_am_i_title');
-    const flexRow = document.querySelector('.flex_row');
+    const flexRow = document.querySelector('.student_image');
 
     // Наблюдение за заголовками
     observer1.observe(whoAmITitle);
@@ -162,33 +162,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // observer6.observe(flexRowDiv);
 
     
-//     const contactSection = document.querySelector('.thank_you_message');
+    const contactSection = document.querySelector('.thank_you_message');
 
-//     const observer7 = new IntersectionObserver(entries => {
-//     entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       const images = document.querySelectorAll('.flexible_row_div img');
+    const observer7 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const images = document.querySelectorAll('.flexible_row_div img');
       
-//       images.forEach(image => {
-//         // Ограничиваем случайное позиционирование внутри секции
-//         const containerWidth = contactSection.offsetWidth;
-//         const randomX = Math.random() * containerWidth + 50; // Случайная позиция по горизонтали
-//         const randomDelay = Math.random() * 0.5; // Случайная задержка (0-0.5 секунд)
-//         const randomDuration = 2 + Math.random() * 3; // Случайная продолжительность падения (2-5 секунд)
+      images.forEach(image => {
+        // Ограничиваем случайное позиционирование внутри секции
+        const containerWidth = contactSection.offsetWidth;
+        const randomX = Math.random() * containerWidth; // Случайная позиция по горизонтали
+        const randomDelay = Math.random() * 0.8; // Случайная задержка (0-0.5 секунд)
+        const randomDuration = 2 + Math.random() * 4; // Случайная продолжительность падения (2-5 секунд)
         
-//         // Применяем случайные значения к каждому изображению
-//         image.style.left = `${randomX}px`;
-//         image.style.animationDelay = `${randomDelay}s`;
-//         image.style.animationDuration = `${randomDuration}s`;
+        // Применяем случайные значения к каждому изображению
+        //image.style.left = `${randomX}px`;
+        image.style.animationDelay = `${randomDelay}s`;
+        image.style.animationDuration = `${randomDuration}s`;
         
-//         // Добавляем класс для запуска анимации
-//         image.classList.add('falling');
-//       });
-//       observer7.unobserve(entry.target);
-//     }
-//   });
-// });
+        // Добавляем класс для запуска анимации
+        image.classList.add('falling');
+      });
+      observer7.unobserve(entry.target);
+    }
+  });
+});
 
-// // Начинаем отслеживать секцию
-//     observer7.observe(contactSection);
+// Начинаем отслеживать секцию
+    observer7.observe(contactSection);
 });

@@ -454,9 +454,10 @@
 .personal-page .flexible_column_div {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin: 48px auto 33px;
-  width: 86.81%;
+  margin: 2% auto 2%;
+  width: 95%;
 }
 .personal-page .contact_title {
   display: flex;
@@ -472,8 +473,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 7%;
-  width: 100%;
+  margin: 7% 7% 5%;
+  width: 95%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
   text-align: center;
@@ -484,9 +485,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5vw;
-  margin: 7% 0 0;
-  width: 100%;
+  gap: 6vw; 
+  margin: 5% 5% 7%;
+  width: 85%;
 }
 .personal-page .github_image {
   width: 5vw;
@@ -515,7 +516,36 @@
   }
   
 }
+.flexible_row_div img {
+  position: relative;
+  width: 5vw; /* Размер изображений */
+  /* animation: fall linear forwards;  */
+  opacity: 0;
+  /* transform: translateY(-250px); Выносим за пределы экрана */
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); /* Добавляем плавность */
+}
+/* Анимация падения с поворотом */
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-90vh) rotate(0deg); /* Начинаем сверху */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(360deg); /* Падаем на дно секции с небольшим отступом */
+  }
+}
 
+img.falling {
+  animation: fall ease forwards;
+}
+
+/* Добавляем класс для финальной позиции */
+img.fallen {
+  transform: translateY(-10vh) rotate(360deg); /* Окончательная позиция */
+  position: relative; /* Делаем изображения относительными для укладки друг на друга */
+  z-index: auto; /* Убираем наложение */
+}
 
 /* Анимация появления */
 .animate {

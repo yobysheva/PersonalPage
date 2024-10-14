@@ -20,28 +20,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  /* top: -80vh; */
-  bottom: 80vh;
+  top: 15vh;
+  /* bottom: 80vh; */
   flex-direction: column;
   width: 100%;
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); 
 }
-/* @media (max-width: 4000px) {
-  .personal-page .profile_group {
-    bottom: 50vh;
-  }
-}
-@media (max-width: 1800px) {
-  .personal-page .profile_group {
-    bottom: 80vh;
-  }
-}
-@media (max-width: 991px) {
-  .personal-page .profile_group {
-    bottom: 80vh;
-  }
-} */
 
 .personal-page .profile_image {
   position: fixed;
@@ -88,7 +73,7 @@
   position: relative;
   display: flex;
   gap: 0 18px;
-  margin: 20px 15px 776px auto;
+  margin: 20px 20px 1.5% auto;
   width: 225px;
   max-width: 100%;
   opacity: 0;
@@ -161,13 +146,50 @@
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.personal-page .student_image {
+.personal-page .photo_container{
+  position: relative; /* Относительное позиционирование для контейнера */
+  display: inline-block;
   width: 50%;
   height: 10%;
+}
+
+.personal-page .tape1{
+  position: absolute;
+  top: -6%; /* Смещение маленького изображения за границу основного */
+  left: -10%;
+  width: 35%;
+  z-index: 4;
+}
+.personal-page .tape2{
+  position: absolute;
+  top: -7%; /* Смещение маленького изображения за границу основного */
+  right: -6%;
+  width: 15%;
+  z-index: 4;
+}
+.personal-page .tape9_1{
+  position: absolute;
+  bottom: -6%; /* Смещение маленького изображения за границу основного */
+  right: -8%;
+  width: 15%;
+  z-index: 4;
+}
+.personal-page .tape10_1{
+  position: absolute;
+  bottom: -7%; /* Смещение маленького изображения за границу основного */
+  left: -6%;
+  width: 15%;
+  z-index: 4;
+}
+
+.personal-page .student_image {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   min-width: 0;
   opacity: 0.85;
   margin-top: 1%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .personal-page .career_aspiration_title {
@@ -191,7 +213,7 @@
   .personal-page .student_intro_title{
     width: 85%;
   }
-  .personal-page .student_image{
+  .personal-page .photo_container{
     width: 85%;
     margin-top: 5%;
   }
@@ -223,13 +245,40 @@
   text-align: center;
   letter-spacing: 10.6px;
 }
-.personal-page .skills_image_main {
+.personal-page .photo_container2{
   position: absolute;
   bottom: 0;
   right: 0;
   width: 32%;
   object-fit: contain;
   margin-left: 5%;
+}
+.personal-page .tape3{
+  position: absolute;
+  bottom: -7%;
+  right: -1%;
+  width: 80%;
+  z-index: 4;
+}
+.personal-page .tape4{
+  position: absolute;
+  top: -3%; /* Смещение маленького изображения за границу основного */
+  right: 13%;
+  width: 25%;
+  z-index: 4;
+}
+.personal-page .tape5{
+  position: absolute;
+  top: 38%; /* Смещение маленького изображения за границу основного */
+  left: 5%;
+  width: 22%;
+  z-index: 4;
+}
+.personal-page .skills_image_main {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  object-fit: contain;
 }
 .personal-page .skills_container {
   display: grid;
@@ -294,7 +343,7 @@
     width: 80%;
   }
 
-  .personal-page .skills_image_main {
+  .personal-page .photo_container2 {
     width: 50%;
     max-width: 300px;
   }
@@ -348,6 +397,7 @@
   min-height: 100vh;
   height: 100%;
   background-image: linear-gradient(180deg,  rgba(255, 254, 249, 0.4) 30%,rgba(255, 254, 249, 0.6) 40%, rgba(255, 254, 249, 0.8) 50%);
+  /* background-image: linear-gradient(180deg,  rgba(2,1, 0, 0.6) 60%,rgba(2,1, 0, 0.6) 70%, rgba(2,1, 0, 0.6) 80%); */
   cursor: default;
 }
 .personal-page .color_box {
@@ -381,6 +431,7 @@
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
   color: black;
+  /* color: #fffef9; */
   text-align: center;
   letter-spacing: 10.6px;
 }
@@ -402,9 +453,58 @@
     margin-right: 3%;
   }
 }
-.personal-page .hobby_image {
+.personal-page .photo_container3{
+  position: relative;
   width: 23%;
 }
+.personal-page .tape6,
+.personal-page .tape7{
+  position: absolute;
+  top: -7%;
+  width: 105%;
+  z-index: 4;
+}
+.personal-page .tape6_1,
+.personal-page .tape7_1{
+  position: absolute;
+  bottom: -7%;
+  width: 105%;
+  z-index: 4;
+}
+
+.personal-page .tape9{
+  position: absolute;
+  top: -7%; /* Смещение маленького изображения за границу основного */
+  left: -7%;
+  width: 35%;
+  z-index: 4;
+}
+.personal-page .tape10{
+  position: absolute;
+  top: -7%; /* Смещение маленького изображения за границу основного */
+  right: -7%;
+  width: 35%;
+  z-index: 4;
+}
+.personal-page .tape11{
+  position: absolute;
+  bottom: -9%; /* Смещение маленького изображения за границу основного */
+  left: -7%;
+  width: 35%;
+  z-index: 4;
+}
+.personal-page .tape12{
+  position: absolute;
+  bottom: -9%; /* Смещение маленького изображения за границу основного */
+  right: -7%;
+  width: 35%;
+  z-index: 4;
+}
+
+.personal-page .hobby_image {
+  width: 100%;
+}
+
 .personal-page .photo_description_title {
   margin-top: 3%;
   margin-left: 3%;
@@ -413,6 +513,7 @@
   min-width: 0;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
+  /* color: #fffef9; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -424,11 +525,12 @@
   width: 100%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
   color: black;
+  /* color: #fffef9; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 @media (max-width: 1300px) {
-  .personal-page .hobby_image {
+  .personal-page .photo_container3 {
     width: 70%;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -489,17 +591,12 @@
   margin: 5% 5% 7%;
   width: 85%;
 }
-.personal-page .github_image {
-  width: 5vw;
-}
-.personal-page .instagram_image {
-  width: 5vw;
-}
-.personal-page .project_image_1 {
-  width: 5vw;
-}
+.personal-page .github_image,
+.personal-page .instagram_image,
+.personal-page .project_image_1,
 .personal-page .project_image_2 {
   width: 5vw;
+  position: relative; /* Убедимся, что изображения можно смещать */
 }
 @media (max-width: 768px) {
   .personal-page .github_image {
@@ -523,7 +620,9 @@
   opacity: 0;
   /* transform: translateY(-250px); Выносим за пределы экрана */
   transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); /* Добавляем плавность */
+  will-change: transform;
 }
+
 /* Анимация падения с поворотом */
 @keyframes fall {
   0% {
@@ -536,15 +635,21 @@
   }
 }
 
+
 img.falling {
   animation: fall ease forwards;
+  animation-fill-mode: forwards; /* Фиксируем конечное состояние анимации */
 }
 
-/* Добавляем класс для финальной позиции */
+/* Подпрыгивание при наведении */
+.flexible_row_div img:hover {
+  transform: translateY(-10px) rotate(0deg); /* Поднимаем изображение и отменяем поворот */
+  transition: transform 0.3s ease; /* Плавный переход */
+}
+
+/* Финальная позиция после падения */
 img.fallen {
-  transform: translateY(-10vh) rotate(360deg); /* Окончательная позиция */
-  position: relative; /* Делаем изображения относительными для укладки друг на друга */
-  z-index: auto; /* Убираем наложение */
+  transform: translateY(0) rotate(360deg); /* Сохраняем поворот, чтобы hover не сбивал его */
 }
 
 /* Анимация появления */

@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Появление всех элементов, когда 'who_am_i_title' на экране
-                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .career_aspiration_title')
+                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .tape1, .tape2, tape9_1, tape10_1, .career_aspiration_title')
                     .forEach(element => {
                         element.classList.add('animate'); // Анимация появления
                         element.classList.remove('disappear'); // Убираем класс исчезновения
                     });
             } else if (entry.target.classList.contains('student_image')) {
                 // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
-                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .career_aspiration_title')
+                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .tape1, .tape2, tape9_1, tape10_1, .career_aspiration_title')
                     .forEach(element => {
                         element.classList.add('disappear'); // Анимация исчезновения
                         element.classList.remove('animate'); // Убираем класс появления
@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Появление всех элементов, когда 'who_am_i_title' на экране
-                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .skills_image_main, .marquee')
+                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .tape3, .tape4, .tape5, .skills_image_main, .marquee')
                     .forEach(element => {
                         element.classList.add('animate'); // Анимация появления
                         element.classList.remove('disappear'); // Убираем класс исчезновения
                     });
             } else if (entry.target.classList.contains('skills_container')) {
                 // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
-                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .skills_image_main, .marquee')
+                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .tape3, .tape4, .tape5, .skills_image_main, .marquee')
                     .forEach(element => {
                         element.classList.add('disappear'); // Анимация исчезновения
                         element.classList.remove('animate'); // Убираем класс появления

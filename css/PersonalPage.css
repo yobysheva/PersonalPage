@@ -1,3 +1,28 @@
+:root {
+  /* --bg-color: white; */
+  --text-color: black;
+  --gradient2: linear-gradient(180deg, rgba(255, 254, 249, 0) 0%, rgba(255, 254, 249, 0.15) 10%);
+  --gradient3: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%,  rgba(255, 254, 249, 0.4) 100%);
+  --gradient4: linear-gradient(180deg,  rgba(255, 254, 249, 0.4) 0%, rgba(255, 254, 249, 0.8) 100%);
+  --gradient5: linear-gradient(180deg, rgba(255, 254, 249, 0.8) 0%, rgba(255, 254, 249, 0.85) 100%);
+}
+
+.dark-theme {
+  /* --bg-color: #333; */
+  --text-color: white;
+  --gradient2: linear-gradient(180deg, rgba(3, 1, 0, 0) 0%, rgba(3, 1, 0, 0.4) 100%);
+  --gradient3: linear-gradient(180deg, rgba(3, 1, 0, 0.4) 0%, rgba(3, 1, 0, 0.6) 100%);
+  --gradient4: linear-gradient(180deg, rgba(3, 1, 0, 0.6) 0%, rgba(3, 1, 0, 0.8) 100%);
+  --gradient5: linear-gradient(180deg, rgba(3, 1, 0, 0.8) 0%, rgba(3, 1, 0, 0.85) 100%);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* transition: background-color 0.5s, color 0.5s; */
+}
+
+
 .personal-page.main {
   display: flex;
   flex-direction: column;
@@ -37,7 +62,8 @@
   max-width: 100%; 
   height: 100vh;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
+  background: var(--gradient2);
 }
 .personal-page .barcode_image{
   position: relative;
@@ -51,7 +77,8 @@
   width: 60%;
   font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 2vw;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 0.7em;
 }
@@ -79,10 +106,17 @@
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1);
 }
+.personal-page .theme-toggle {
+  position: absolute;
+  margin: 20px auto 20px 20px;
+  width: 40px;
+  transition: transform 0.3s ease; /* Добавляем переход для transform */
+}
+
 .personal-page .contact_image_1,
 .personal-page .contact_image_2,
 .personal-page .contact_image_3,
-.personal-page .contact_image_4 {
+.personal-page .contact_image_4{
   width: 100%;
   transition: transform 0.3s ease; /* Добавляем переход для transform */
 }
@@ -100,7 +134,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0) 0%, rgba(255, 254, 249, 0.07) 7% , rgba(255, 254, 249, 0.15) 10%);
+  background-image: var(--gradient2);
   cursor: default;
 }
 .personal-page .flex_column {
@@ -116,7 +150,8 @@
   margin: 0 auto;
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
 }
@@ -141,7 +176,8 @@
   width: 45%;
   min-width: 0;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -195,7 +231,8 @@
 .personal-page .career_aspiration_title {
   width: 85%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   letter-spacing: 2.8px;
   margin-bottom: 5%;
   margin-top: 2%;
@@ -228,7 +265,7 @@
   flex-direction: column;
   min-height: 100vh;
   padding: 20px;
-  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 10%, rgba(255, 254, 249, 0.3) 20%,  rgba(255, 254, 249, 0.4) 30%);
+  background-image: var(--gradient3);
   cursor: default;
 }
 
@@ -241,7 +278,8 @@
   margin: 0 auto;
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
 }
@@ -314,10 +352,10 @@
 
 .personal-page .skills_title {
   text-align: left;
-  color: black;
   margin-bottom: 0;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 0.1em;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -326,7 +364,8 @@
 .personal-page .learning_status_h1 {
   width: 65%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   letter-spacing: 2.8px;
   text-align: left;
   margin-left: 5%;
@@ -374,7 +413,8 @@
 
 .marquee-content {
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   letter-spacing: 2.8px;
   display: inline-block;
   animation: marquee 10s linear infinite;
@@ -396,7 +436,7 @@
   flex-direction: column;
   min-height: 100vh;
   height: 100%;
-  background-image: linear-gradient(180deg,  rgba(255, 254, 249, 0.4) 30%,rgba(255, 254, 249, 0.6) 40%, rgba(255, 254, 249, 0.8) 50%);
+  background-image: var(--gradient4);
   /* background-image: linear-gradient(180deg,  rgba(2,1, 0, 0.6) 60%,rgba(2,1, 0, 0.6) 70%, rgba(2,1, 0, 0.6) 80%); */
   cursor: default;
 }
@@ -406,7 +446,8 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: black;
+  background-color: var(--text-color);
+  /* color: black; */
 }
 .personal-page .flex_column_container {
   position: relative;
@@ -430,8 +471,8 @@
   margin: 0 auto;
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
-  color: black;
-  /* color: #fffef9; */
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
 }
@@ -512,8 +553,8 @@
   width: 20%;
   min-width: 0;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
-  /* color: #fffef9; */
+  color: var(--text-color);
+  /* color: black; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -524,8 +565,8 @@
   margin-right: 3%;
   width: 100%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
-  /* color: #fffef9; */
+  color: var(--text-color);
+  /* color: black; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -549,7 +590,7 @@
   flex-direction: column;
   height: 100vh;
   min-height: 100vh;
-  background-image: linear-gradient(180deg, rgba(255, 254, 249, 0.8) 50%, #fffef9 60%, #fffef9 100%);
+  background-image: var(--gradient5);
   cursor: default;
   overflow: hidden;
 }
@@ -560,6 +601,7 @@
   align-items: center;
   margin: 2% auto 2%;
   width: 95%;
+  height: 90%;
 }
 .personal-page .contact_title {
   display: flex;
@@ -567,7 +609,8 @@
   margin: 0 auto;
   font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
   font-size: 8vw;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
 }
@@ -578,7 +621,8 @@
   margin: 7% 7% 5%;
   width: 95%;
   font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: black;
+  color: var(--text-color);
+  /* color: black; */
   text-align: center;
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -591,27 +635,10 @@
   margin: 5% 5% 7%;
   width: 85%;
 }
-.personal-page .github_image,
-.personal-page .instagram_image,
-.personal-page .project_image_1,
-.personal-page .project_image_2 {
-  width: 5vw;
-  position: relative; /* Убедимся, что изображения можно смещать */
-}
 @media (max-width: 768px) {
-  .personal-page .github_image {
+  .flexible_row_div img{
     width: 10vw;
   }
-  .personal-page .instagram_image {
-    width: 10vw;
-  }
-  .personal-page .project_image_1 {
-    width: 10vw;
-  }
-.personal-page .project_image_2 {
-    width: 10vw;
-  }
-  
 }
 .flexible_row_div img {
   position: relative;
@@ -641,11 +668,6 @@ img.falling {
   animation-fill-mode: forwards; /* Фиксируем конечное состояние анимации */
 }
 
-/* Подпрыгивание при наведении */
-.flexible_row_div img:hover {
-  transform: translateY(-10px) rotate(0deg); /* Поднимаем изображение и отменяем поворот */
-  transition: transform 0.3s ease; /* Плавный переход */
-}
 
 /* Финальная позиция после падения */
 img.fallen {

@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Появление всех элементов, когда 'who_am_i_title' на экране
-                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .tape1, .tape2, tape9_1, tape10_1, .career_aspiration_title')
+                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .tape1, .tape2, .tape9_1, .tape10_1, .career_aspiration_title')
                     .forEach(element => {
                         element.classList.add('animate'); // Анимация появления
                         element.classList.remove('disappear'); // Убираем класс исчезновения
                     });
             } else if (entry.target.classList.contains('student_image')) {
                 // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
-                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .tape1, .tape2, tape9_1, tape10_1, .career_aspiration_title')
+                document.querySelectorAll('.who_am_i_title, .student_intro_title, .student_image, .tape1, .tape2, .tape9_1, .tape10_1, .career_aspiration_title')
                     .forEach(element => {
                         element.classList.add('disappear'); // Анимация исчезновения
                         element.classList.remove('animate'); // Убираем класс появления
@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Появление всех элементов, когда 'who_am_i_title' на экране
-                document.querySelectorAll('.profile_group, .contact_images_row')
+                document.querySelectorAll('.profile_group, .contact_images_row, .theme-toggle ')
                     .forEach(element => {
                         element.classList.add('animate'); // Анимация появления
                         element.classList.remove('disappear'); // Убираем класс исчезновения
                     });
             } else if (entry.target.classList.contains('barcode_image')) {
                 // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
-                document.querySelectorAll('.profile_group, .contact_images_row')
+                document.querySelectorAll('.profile_group, .contact_images_row, .theme-toggle ')
                     .forEach(element => {
                         element.classList.add('disappear'); // Анимация исчезновения
                         element.classList.remove('animate'); // Убираем класс появления
@@ -184,11 +184,86 @@ document.addEventListener("DOMContentLoaded", function () {
         // Добавляем класс для запуска анимации
         image.classList.add('falling');
       });
-      observer7.unobserve(entry.target);
     }
   });
 });
 
 // Начинаем отслеживать секцию
     observer7.observe(contactSection);
+});
+
+// Находим элемент для смены темы
+const themeToggle = document.getElementById('themeToggle');
+
+// Массив изображений для разных тем
+const lightThemeImages = {
+    python: './assets/python.png',
+    align: './assets/align.png',
+    alarm: './assets/alarm.png',
+    tea: './assets/tea.png',
+    question: './assets/question.png',
+    stairs: './assets/stairs.png',
+
+    profile: './assets/main.png',
+    barcode: './assets/barcode_3.png',
+    contact1: './assets/git.png',
+    contact2: './assets/vk.png',
+    contact3: './assets/tg.png',
+    contact4: './assets/ig.png',
+    theme_toggle: './assets/moon.png',
+    contact6: './assets/tgc.png',
+    contact5: './assets/pinterest.png',
+    contact7: './assets/tiktok.png',
+};
+
+const darkThemeImages = {
+    python: './assets/python_1.png',
+    align: './assets/align_1.png',
+    alarm: './assets/alarm_1.png',
+    tea: './assets/tea_1.png',
+    question: './assets/question_1.png',
+    stairs: './assets/stairs_1.png',
+
+    profile: './assets/main_5.png',
+    barcode: './assets/barcode_3_1.png',
+    contact1: './assets/git_1.png',
+    contact2: './assets/vk_1.png',
+    contact3: './assets/tg_1.png',
+    contact4: './assets/ig_1.png',
+    theme_toggle: './assets/moon_1.png',
+    contact6: './assets/tgc_1.png',
+    contact5: './assets/pinterest_1.png',
+    contact7: './assets/tiktok_1.png',
+};
+
+// Переключение темы
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+
+    const isDarkTheme = document.body.classList.contains('dark-theme');
+
+    // Меняем изображения в зависимости от темы
+    document.querySelector('.profile_image').src = isDarkTheme ? darkThemeImages.profile : lightThemeImages.profile;
+    document.querySelector('.barcode_image').src = isDarkTheme ? darkThemeImages.barcode : lightThemeImages.barcode;
+    document.querySelector('.contact_image_1').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
+    document.querySelector('.contact_image_2').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
+    document.querySelector('.contact_image_3').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
+    document.querySelector('.contact_image_4').src = isDarkTheme ? darkThemeImages.contact4 : lightThemeImages.contact4;
+    document.querySelector('.theme-toggle').src = isDarkTheme ? darkThemeImages.theme_toggle : lightThemeImages.theme_toggle;
+    document.querySelector('.github_image').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
+    document.querySelector('.instagram_image').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
+    document.querySelector('.project_image_1').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
+    document.querySelector('.project_image_2').src = isDarkTheme ? darkThemeImages.contact4 : lightThemeImages.contact4;
+    document.querySelector('.pinterest_image').src = isDarkTheme ? darkThemeImages.contact5 : lightThemeImages.contact5;
+    document.querySelector('.tgc_image').src = isDarkTheme ? darkThemeImages.contact6 : lightThemeImages.contact6;
+    document.querySelector('.tiktok_image').src = isDarkTheme ? darkThemeImages.contact7 : lightThemeImages.contact7;
+
+    // Меняем изображения в зависимости от темы
+    document.querySelectorAll('.skills_image').forEach((img, index) => {
+        if (isDarkTheme) {
+            img.src = darkThemeImages[Object.keys(lightThemeImages)[index]];
+        } else {
+            img.src = lightThemeImages[Object.keys(lightThemeImages)[index]];
+        }
+    });
 });

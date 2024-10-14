@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Появление всех элементов, когда 'who_am_i_title' на экране
-                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .tape3, .tape4, .tape5, .skills_image_main, .marquee')
+                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .tape3, .tape4, .tape5, .skills_image_main')
                     .forEach(element => {
                         element.classList.add('animate'); // Анимация появления
                         element.classList.remove('disappear'); // Убираем класс исчезновения
                     });
             } else if (entry.target.classList.contains('skills_container')) {
                 // Исчезновение всех элементов, когда 'student_intro_title' уходит с экрана
-                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .tape3, .tape4, .tape5, .skills_image_main, .marquee')
+                document.querySelectorAll('.skills_h1, .skills_container, .learning_status_h1, .tape3, .tape4, .tape5, .skills_image_main')
                     .forEach(element => {
                         element.classList.add('disappear'); // Анимация исчезновения
                         element.classList.remove('animate'); // Убираем класс появления
@@ -192,6 +192,8 @@ document.addEventListener("DOMContentLoaded", function () {
     observer7.observe(contactSection);
 });
 
+
+//Переключение темы
 // Находим элемент для смены темы
 const themeToggle = document.getElementById('themeToggle');
 
@@ -236,20 +238,60 @@ const darkThemeImages = {
     contact7: './assets/tiktok_1.png',
 };
 
-// Переключение темы
+//Переключение темы
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
 
     const isDarkTheme = document.body.classList.contains('dark-theme');
 
     // Меняем изображения в зависимости от темы
-    document.querySelector('.profile_image').src = isDarkTheme ? darkThemeImages.profile : lightThemeImages.profile;
-    document.querySelector('.barcode_image').src = isDarkTheme ? darkThemeImages.barcode : lightThemeImages.barcode;
-    document.querySelector('.contact_image_1').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
-    document.querySelector('.contact_image_2').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
-    document.querySelector('.contact_image_3').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
-    document.querySelector('.contact_image_4').src = isDarkTheme ? darkThemeImages.contact4 : lightThemeImages.contact4;
-    document.querySelector('.theme-toggle').src = isDarkTheme ? darkThemeImages.theme_toggle : lightThemeImages.theme_toggle;
+    // Убираем прозрачность для плавного исчезновения
+    setTimeout(() => {
+        document.querySelector('.theme-toggle').src = isDarkTheme ? darkThemeImages.theme_toggle : lightThemeImages.theme_toggle;
+        document.querySelector('.theme-toggle').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    document.querySelector('.profile_image').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    setTimeout(() => {
+        document.querySelector('.profile_image').src = isDarkTheme ? darkThemeImages.profile : lightThemeImages.profile;
+        document.querySelector('.profile_image').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+
+    document.querySelector('.barcode_image').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    setTimeout(() => {
+        document.querySelector('.barcode_image').src = isDarkTheme ? darkThemeImages.barcode : lightThemeImages.barcode;
+        document.querySelector('.barcode_image').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+
+    document.querySelector('.contact_image_1').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    setTimeout(() => {
+        document.querySelector('.contact_image_1').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
+        document.querySelector('.contact_image_1').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+    document.querySelector('.contact_image_2').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    setTimeout(() => {
+        document.querySelector('.contact_image_2').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
+        document.querySelector('.contact_image_2').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+    document.querySelector('.contact_image_3').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    setTimeout(() => {
+        document.querySelector('.contact_image_3').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
+        document.querySelector('.contact_image_3').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+    document.querySelector('.contact_image_4').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+    setTimeout(() => {
+        document.querySelector('.contact_image_4').src = isDarkTheme ? darkThemeImages.contact4 : lightThemeImages.contact4;
+        document.querySelector('.contact_image_4').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+    }, 500);
+    document.querySelector('.theme-toggle').style.opacity = '0'; 
+    // Меняем источник изображения через 500мс после того, как исчезнут
+
     document.querySelector('.github_image').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
     document.querySelector('.instagram_image').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
     document.querySelector('.project_image_1').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
@@ -260,10 +302,34 @@ themeToggle.addEventListener('click', () => {
 
     // Меняем изображения в зависимости от темы
     document.querySelectorAll('.skills_image').forEach((img, index) => {
-        if (isDarkTheme) {
-            img.src = darkThemeImages[Object.keys(lightThemeImages)[index]];
-        } else {
-            img.src = lightThemeImages[Object.keys(lightThemeImages)[index]];
-        }
+        img.style.opacity = '0';
+        // Меняем источник изображения через 500мс после того, как исчезнут
+        setTimeout(() => {
+                img.src = isDarkTheme ? darkThemeImages[Object.keys(lightThemeImages)[index]] : lightThemeImages[Object.keys(lightThemeImages)[index]];
+            img.style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+        }, 500);
     });
 });
+
+// themeToggle.addEventListener('click', () => {
+//     document.body.classList.toggle('dark-theme');
+
+//     const isDarkTheme = document.body.classList.contains('dark-theme');
+
+//     // Изменение изображений с плавной сменой
+//     document.querySelectorAll('img').forEach((img) => {
+//         // Убираем прозрачность для плавного исчезновения
+//         img.style.opacity = '0';
+        
+//         // Меняем источник изображения через 500мс после того, как исчезнут
+//         setTimeout(() => {
+//             if (img.classList.contains('skills_image')) {
+//                 const index = Array.from(document.querySelectorAll('.skills_image')).indexOf(img);
+//                 img.src = isDarkTheme ? darkThemeImages[Object.keys(lightThemeImages)[index]] : lightThemeImages[Object.keys(lightThemeImages)[index]];
+//             } else if (img.classList.contains('profile_image')) {
+//                 img.src = isDarkTheme ? darkThemeImages.profile : lightThemeImages.profile;
+//             } // Добавляем другие условия для ваших изображений
+//             img.style.opacity = '1'; // Возвращаем прозрачность для плавного появления
+//         }, 500); // Устанавливаем таймаут на полсекунды для плавного перехода
+//     });
+// });

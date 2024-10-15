@@ -136,6 +136,40 @@ document.addEventListener("DOMContentLoaded", function () {
     // Наблюдение за заголовками
     observer5.observe(thankYouMessage);
 
+    const contactSection = document.querySelector('.thank_you_message');
+
+const observer7 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const images = document.querySelectorAll('.flexible_row_div img, .flexible_row_div svg');
+
+        if (entry.isIntersecting) {
+            images.forEach(image => {
+                // const containerWidth = contactSection.offsetWidth;
+                // const randomX = Math.random() * containerWidth; // Случайная позиция по горизонтали
+                const randomDelay = Math.random() * 0.8; // Случайная задержка
+                const randomDuration = 2 + Math.random() * 4; // Случайная продолжительность падения
+
+                // image.style.left = `${randomX}px`;
+                image.style.animationDelay = `${randomDelay}s`;
+                image.style.animationDuration = `${randomDuration}s`;
+
+                // Добавляем класс для запуска анимации
+                image.classList.add('falling');
+            });
+        } else {
+            images.forEach(image => {
+                // Удаляем класс анимации
+                image.classList.remove('falling');
+                // Применяем класс для обратной анимации
+                image.classList.add('falling-reverse'); // Убедитесь, что этот класс определен в CSS
+            });
+        }
+    });
+});
+
+// Начинаем отслеживать секцию
+observer7.observe(contactSection);
+
     // const observer6 = new IntersectionObserver(entries => {
     //     entries.forEach(entry => {
     //         if (entry.isIntersecting) {
@@ -162,174 +196,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // observer6.observe(flexRowDiv);
 
     
-    const contactSection = document.querySelector('.thank_you_message');
+//     const contactSection = document.querySelector('.thank_you_message');
 
-    const observer7 = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const images = document.querySelectorAll('.flexible_row_div img');
+//     const observer7 = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       const images = document.querySelectorAll('.flexible_row_div img, .flexible_row_div svg');
       
-      images.forEach(image => {
-        // Ограничиваем случайное позиционирование внутри секции
-        const containerWidth = contactSection.offsetWidth;
-        const randomX = Math.random() * containerWidth; // Случайная позиция по горизонтали
-        const randomDelay = Math.random() * 0.8; // Случайная задержка (0-0.5 секунд)
-        const randomDuration = 2 + Math.random() * 4; // Случайная продолжительность падения (2-5 секунд)
+//       images.forEach(image => {
+//         // Ограничиваем случайное позиционирование внутри секции
+//         const containerWidth = contactSection.offsetWidth;
+//         const randomX = Math.random() * containerWidth; // Случайная позиция по горизонтали
+//         const randomDelay = Math.random() * 0.8; // Случайная задержка (0-0.5 секунд)
+//         const randomDuration = 2 + Math.random() * 4; // Случайная продолжительность падения (2-5 секунд)
         
-        // Применяем случайные значения к каждому изображению
-        //image.style.left = `${randomX}px`;
-        image.style.animationDelay = `${randomDelay}s`;
-        image.style.animationDuration = `${randomDuration}s`;
+//         // Применяем случайные значения к каждому изображению
+//         //image.style.left = `${randomX}px`;
+//         image.style.animationDelay = `${randomDelay}s`;
+//         image.style.animationDuration = `${randomDuration}s`;
         
-        // Добавляем класс для запуска анимации
-        image.classList.add('falling');
-      });
-    }
-  });
-});
-
-// Начинаем отслеживать секцию
-    observer7.observe(contactSection);
-});
-
-
-//Переключение темы
-// Находим элемент для смены темы
-const themeToggle = document.getElementById('themeToggle');
-
-// Массив изображений для разных тем
-const lightThemeImages = {
-    python: './assets/python.png',
-    align: './assets/align.png',
-    alarm: './assets/alarm.png',
-    tea: './assets/tea.png',
-    question: './assets/question.png',
-    stairs: './assets/stairs.png',
-
-    profile: './assets/main.png',
-    barcode: './assets/barcode_3.png',
-    contact1: './assets/git.png',
-    contact2: './assets/vk.png',
-    contact3: './assets/tg.png',
-    contact4: './assets/ig.png',
-    theme_toggle: './assets/moon.png',
-    contact6: './assets/tgc.png',
-    contact5: './assets/pinterest.png',
-    contact7: './assets/tiktok.png',
-};
-
-const darkThemeImages = {
-    python: './assets/python_1.png',
-    align: './assets/align_1.png',
-    alarm: './assets/alarm_1.png',
-    tea: './assets/tea_1.png',
-    question: './assets/question_1.png',
-    stairs: './assets/stairs_1.png',
-
-    profile: './assets/main_5.png',
-    barcode: './assets/barcode_3_1.png',
-    contact1: './assets/git_1.png',
-    contact2: './assets/vk_1.png',
-    contact3: './assets/tg_1.png',
-    contact4: './assets/ig_1.png',
-    theme_toggle: './assets/moon_1.png',
-    contact6: './assets/tgc_1.png',
-    contact5: './assets/pinterest_1.png',
-    contact7: './assets/tiktok_1.png',
-};
-
-//Переключение темы
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-
-    const isDarkTheme = document.body.classList.contains('dark-theme');
-
-    // Меняем изображения в зависимости от темы
-    // Убираем прозрачность для плавного исчезновения
-    setTimeout(() => {
-        document.querySelector('.theme-toggle').src = isDarkTheme ? darkThemeImages.theme_toggle : lightThemeImages.theme_toggle;
-        document.querySelector('.theme-toggle').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    document.querySelector('.profile_image').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    setTimeout(() => {
-        document.querySelector('.profile_image').src = isDarkTheme ? darkThemeImages.profile : lightThemeImages.profile;
-        document.querySelector('.profile_image').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-
-    document.querySelector('.barcode_image').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    setTimeout(() => {
-        document.querySelector('.barcode_image').src = isDarkTheme ? darkThemeImages.barcode : lightThemeImages.barcode;
-        document.querySelector('.barcode_image').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-
-    document.querySelector('.contact_image_1').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    setTimeout(() => {
-        document.querySelector('.contact_image_1').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
-        document.querySelector('.contact_image_1').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-    document.querySelector('.contact_image_2').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    setTimeout(() => {
-        document.querySelector('.contact_image_2').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
-        document.querySelector('.contact_image_2').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-    document.querySelector('.contact_image_3').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    setTimeout(() => {
-        document.querySelector('.contact_image_3').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
-        document.querySelector('.contact_image_3').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-    document.querySelector('.contact_image_4').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-    setTimeout(() => {
-        document.querySelector('.contact_image_4').src = isDarkTheme ? darkThemeImages.contact4 : lightThemeImages.contact4;
-        document.querySelector('.contact_image_4').style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-    }, 500);
-    document.querySelector('.theme-toggle').style.opacity = '0'; 
-    // Меняем источник изображения через 500мс после того, как исчезнут
-
-    document.querySelector('.github_image').src = isDarkTheme ? darkThemeImages.contact1 : lightThemeImages.contact1;
-    document.querySelector('.instagram_image').src = isDarkTheme ? darkThemeImages.contact2 : lightThemeImages.contact2;
-    document.querySelector('.project_image_1').src = isDarkTheme ? darkThemeImages.contact3 : lightThemeImages.contact3;
-    document.querySelector('.project_image_2').src = isDarkTheme ? darkThemeImages.contact4 : lightThemeImages.contact4;
-    document.querySelector('.pinterest_image').src = isDarkTheme ? darkThemeImages.contact5 : lightThemeImages.contact5;
-    document.querySelector('.tgc_image').src = isDarkTheme ? darkThemeImages.contact6 : lightThemeImages.contact6;
-    document.querySelector('.tiktok_image').src = isDarkTheme ? darkThemeImages.contact7 : lightThemeImages.contact7;
-
-    // Меняем изображения в зависимости от темы
-    document.querySelectorAll('.skills_image').forEach((img, index) => {
-        img.style.opacity = '0';
-        // Меняем источник изображения через 500мс после того, как исчезнут
-        setTimeout(() => {
-                img.src = isDarkTheme ? darkThemeImages[Object.keys(lightThemeImages)[index]] : lightThemeImages[Object.keys(lightThemeImages)[index]];
-            img.style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-        }, 500);
-    });
-});
-
-// themeToggle.addEventListener('click', () => {
-//     document.body.classList.toggle('dark-theme');
-
-//     const isDarkTheme = document.body.classList.contains('dark-theme');
-
-//     // Изменение изображений с плавной сменой
-//     document.querySelectorAll('img').forEach((img) => {
-//         // Убираем прозрачность для плавного исчезновения
-//         img.style.opacity = '0';
-        
-//         // Меняем источник изображения через 500мс после того, как исчезнут
-//         setTimeout(() => {
-//             if (img.classList.contains('skills_image')) {
-//                 const index = Array.from(document.querySelectorAll('.skills_image')).indexOf(img);
-//                 img.src = isDarkTheme ? darkThemeImages[Object.keys(lightThemeImages)[index]] : lightThemeImages[Object.keys(lightThemeImages)[index]];
-//             } else if (img.classList.contains('profile_image')) {
-//                 img.src = isDarkTheme ? darkThemeImages.profile : lightThemeImages.profile;
-//             } // Добавляем другие условия для ваших изображений
-//             img.style.opacity = '1'; // Возвращаем прозрачность для плавного появления
-//         }, 500); // Устанавливаем таймаут на полсекунды для плавного перехода
-//     });
+//         // Добавляем класс для запуска анимации
+//         image.classList.add('falling');
+//       });
+//     }
+//   });
 // });
+
+// // Начинаем отслеживать секцию
+//     observer7.observe(contactSection);
+});
+

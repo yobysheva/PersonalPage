@@ -1,64 +1,11 @@
 :root {
-  --bg-color: rgb(3, 1, 0);
-  --text-color: rgb(3, 1, 0);
-  --gradient2: linear-gradient(180deg, rgba(255, 254, 249, 0) 0%, rgba(255, 254, 249, 0.15) 10%);
-  --gradient3: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%,  rgba(255, 254, 249, 0.4) 100%);
-  --gradient4: linear-gradient(180deg,  rgba(255, 254, 249, 0.4) 0%, rgba(255, 254, 249, 0.8) 100%);
-  --gradient5: linear-gradient(180deg, rgba(255, 254, 249, 0.8) 0%, rgba(255, 254, 249, 0.85) 100%);
+  --gradient1: linear-gradient(180deg, rgba(3, 1, 0, 0) 0%, rgba(3, 1, 0, 0.4) 100%);
+  --gradient2: linear-gradient(180deg, rgba(3, 1, 0, 0) 0%, rgba(3, 1, 0, 0.7) 100%);
+  --gradient3: linear-gradient(180deg, rgba(3, 1, 0, 0.7) 0%, rgba(3, 1, 0, 0.9) 20%, rgba(3, 1, 0, 0.95) 100%);
+  --gradient4: linear-gradient(180deg, rgba(3, 1, 0, 0.95) 0%, rgba(3, 1, 0, 0.98) 100%);
+  --gradient5: linear-gradient(180deg, rgba(3, 1, 0, 0.98) 0%, rgba(3, 1, 0, 1) 100%);
 }
 
-.dark-theme {
-  --bg-color: white;
-  --text-color: white;
-  --gradient2: linear-gradient(180deg, rgba(3, 1, 0, 0) 0%, rgba(3, 1, 0, 0.5) 100%);
-  --gradient3: linear-gradient(180deg, rgba(3, 1, 0, 0.5) 0%, rgba(3, 1, 0, 0.8) 100%);
-  --gradient4: linear-gradient(180deg, rgba(3, 1, 0, 0.8) 0%, rgba(3, 1, 0, 0.85) 100%);
-  --gradient5: linear-gradient(180deg, rgba(3, 1, 0, 0.85) 0%, rgba(3, 1, 0, 1) 100%);
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  /* transition: background-color 0.5s, color 0.5s; */
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-/* Переходы для изображений */
-.profile_image,
-.barcode_image,
-.contact_image_1,
-.contact_image_2,
-.contact_image_3,
-.contact_image_4,
-.theme-toggle,
-.github_image,
-.instagram_image,
-.project_image_1,
-.project_image_2,
-.pinterest_image,
-.tgc_image,
-.tiktok_image,
-.skills_image {
-  transition: opacity 0.5s ease; /* Плавное изменение прозрачности */
-}
-
-.dark-theme .profile_image,
-.dark-theme .barcode_image,
-.dark-theme .contact_image_1,
-.dark-theme .contact_image_2,
-.dark-theme .contact_image_3,
-.dark-theme .contact_image_4,
-.dark-theme .theme-toggle,
-.dark-theme .github_image,
-.dark-theme .instagram_image,
-.dark-theme .project_image_1,
-.dark-theme .project_image_2,
-.dark-theme .pinterest_image,
-.dark-theme .tgc_image,
-.dark-theme .tiktok_image,
-.dark-theme .skills_image {
-  opacity: 0; /* Начинаем с прозрачного состояния при смене */
-}
 .personal-page.main {
   display: flex;
   flex-direction: column;
@@ -75,20 +22,20 @@ body {
   overflow: auto;
   cursor: default;
   overflow: hidden;
+  /* background-image: var(--gradient1); */
 }
 .personal-page .profile_group {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 15vh;
+  top: 25vh;
   /* bottom: 80vh; */
   flex-direction: column;
   width: 100%;
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1); 
 }
-
 .personal-page .profile_image {
   position: fixed;
   top: 0;
@@ -98,8 +45,7 @@ body {
   max-width: 100%; 
   height: 100vh;
   object-fit: cover;
-  z-index: -3;
-  background: var(--gradient2);
+  z-index: -10;
 }
 .personal-page .texture {
   position: absolute;
@@ -109,7 +55,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Обеспечивает правильное отображение изображения */
-  opacity: 0.01; /* Уровень прозрачности текстуры */
+  opacity: 0.04; /* Уровень прозрачности текстуры */
   z-index: 5;
 }
 .personal-page .texture2 {
@@ -120,7 +66,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Обеспечивает правильное отображение изображения */
-  opacity: 0.07; /* Уровень прозрачности текстуры */
+  opacity: 0.12; /* Уровень прозрачности текстуры */
   z-index: 5;
 }
 .personal-page .texture3 {
@@ -131,7 +77,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Обеспечивает правильное отображение изображения */
-  opacity: 0.15; /* Уровень прозрачности текстуры */
+  opacity: 0.20; /* Уровень прозрачности текстуры */
   z-index: 5;
 }
 .personal-page .texture4 {
@@ -142,7 +88,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Обеспечивает правильное отображение изображения */
-  opacity: 0.21; /* Уровень прозрачности текстуры */
+  opacity: 0.25; /* Уровень прозрачности текстуры */
   z-index: 5;
 }
 .personal-page .texture5 {
@@ -153,13 +99,14 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Обеспечивает правильное отображение изображения */
-  opacity: 0.28; /* Уровень прозрачности текстуры */
+  opacity: 0.32; /* Уровень прозрачности текстуры */
   z-index: 5;
 }
 
 .personal-page .barcode_image{
   position: relative;
   width: 60%;
+  height: auto;
   object-fit: contain;
   margin-bottom: 1%;
 }
@@ -167,9 +114,9 @@ body {
 .personal-page .main_heading {
   position: relative;
   width: 60%;
-  font: 400 32px/1.25 Orbitron, Helvetica, Arial, serif;
+  font: 400 32px/1.25 Orbitron;
   font-size: 2vw;
-  color: var(--text-color);
+  color: white;
   /* color: black; */
   text-align: center;
   letter-spacing: 0.7em;
@@ -230,10 +177,10 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
+  font: 400 106px/1.25 Orbitron;
   font-size: 8vw;
   mix-blend-mode: exclusion;
-  /* color: black; */
+  color: white;
   text-align: center;
   letter-spacing: 10.6px;
 }
@@ -257,8 +204,8 @@ body {
 .personal-page .student_intro_title {
   width: 45%;
   min-width: 0;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -312,8 +259,8 @@ body {
 
 .personal-page .career_aspiration_title {
   width: 85%;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   letter-spacing: 2.8px;
   margin-bottom: 5%;
@@ -358,9 +305,9 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
+  font: 400 106px/1.25 Orbitron;
   font-size: 8vw;
-  color: var(--text-color);
+  color: white;
   /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
@@ -385,8 +332,8 @@ body {
 .personal-page .tape4{
   position: absolute;
   top: -3%; /* Смещение маленького изображения за границу основного */
-  right: 13%;
-  width: 25%;
+  right: 10%;
+  width: 30%;
   z-index: 4;
 }
 .personal-page .tape5{
@@ -434,12 +381,16 @@ body {
   width: 85px;
   height: auto;
 }
+.personal-page .skills_svg {
+  width: 150px;
+  height: auto;
+}
 
 .personal-page .skills_title {
   text-align: left;
   margin-bottom: 0;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   text-align: center;
   letter-spacing: 0.1em;
@@ -448,8 +399,8 @@ body {
 
 .personal-page .learning_status_h1 {
   width: 65%;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   letter-spacing: 2.8px;
   text-align: left;
@@ -477,6 +428,10 @@ body {
   }
   .personal-page .skills_image {
     width: 60px;
+  }
+  .personal-page .skills_svg {
+    width: 100px;
+    height: auto;
   }
 }
 
@@ -508,8 +463,8 @@ body {
   z-index: 10;
 }
 .personal-page .marquee-content {
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;;
   /* color: black; */
   letter-spacing: 2.8px;
   display: inline-block;
@@ -558,9 +513,9 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
+  font: 400 106px/1.25 Orbitron;
   font-size: 8vw;
-  color: var(--text-color);
+  color: white;
   /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
@@ -633,6 +588,7 @@ body {
 
 .personal-page .hobby_image {
   width: 100%;
+  height: auto;
 }
 
 .personal-page .photo_description_title {
@@ -641,8 +597,8 @@ body {
   margin-right: 3%;
   width: 20%;
   min-width: 0;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -653,8 +609,8 @@ body {
   margin-left: 3%;
   margin-right: 3%;
   width: 100%;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   letter-spacing: 2.8px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -697,9 +653,9 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  font: 400 106px/1.25 Orbitron, Helvetica, Arial, serif;
+  font: 400 106px/1.25 Orbitron;
   font-size: 8vw;
-  color: var(--text-color);
+  color: white;
   /* color: black; */
   text-align: center;
   letter-spacing: 10.6px;
@@ -710,8 +666,8 @@ body {
   align-items: center;
   margin: 7% 7% 5%;
   width: 95%;
-  font: 400 28px/1.17 "Poiret One", Helvetica, Arial, serif;
-  color: var(--text-color);
+  font: 400 28px/1.17 "Poiret One";
+  color: white;
   /* color: black; */
   text-align: center;
   letter-spacing: 2.8px;
@@ -726,11 +682,13 @@ body {
   width: 85%;
 }
 @media (max-width: 768px) {
-  .flexible_row_div img{
+  .flexible_row_div img,
+  .flexible_row_div svg{
     width: 10vw;
   }
 }
-.flexible_row_div img {
+.flexible_row_div img,
+.flexible_row_div svg {
   position: relative;
   width: 5vw; /* Размер изображений */
   /* animation: fall linear forwards;  */
@@ -740,7 +698,6 @@ body {
   will-change: transform;
 }
 
-/* Анимация падения с поворотом */
 @keyframes fall {
   0% {
     opacity: 0;
@@ -752,15 +709,24 @@ body {
   }
 }
 
+@keyframes fall-reverse {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(360deg); /* Падаем на дно секции с небольшим отступом */ 
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90vh) rotate(0deg); /* Начинаем сверху */
+  }
+}
 
-img.falling {
+.falling {
   animation: fall ease forwards;
   animation-fill-mode: forwards; /* Фиксируем конечное состояние анимации */
 }
 
-
 /* Финальная позиция после падения */
-img.fallen {
+.fallen {
   transform: translateY(0) rotate(360deg); /* Сохраняем поворот, чтобы hover не сбивал его */
 }
 
